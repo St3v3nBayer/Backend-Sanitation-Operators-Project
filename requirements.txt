@@ -1,2 +1,11 @@
 fastapi
 uvicorn[standard]
+sqlmodel
+python-jose[cryptography]
+passlib[argon2]
+argon2-cffi
+python-multipart
+psycopg2-binary
+pydantic[email]
+pytest
+httpx
