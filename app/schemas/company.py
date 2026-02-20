@@ -1,5 +1,6 @@
 from pydantic import BaseModel, EmailStr, constr, ConfigDict
 from typing import Optional
+from datetime import datetime
 
 
 class CompanyCreate(BaseModel):
@@ -27,7 +28,11 @@ class CompanyRead(BaseModel):
     
     id: int
     name: str
-    nit: Optional[str] = None
+    nit: str
     address: Optional[str] = None
     phone: Optional[str] = None
     email: Optional[EmailStr] = None
+    server_version: str
+    is_active: bool
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None

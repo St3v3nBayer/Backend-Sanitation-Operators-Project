@@ -5,7 +5,7 @@ COMPANY = {"name": "ACME", "nit": "123456789", "address": "Cra 1 #2-3", "phone":
 
 @pytest.fixture(scope="function")
 def admin_token(client):
-    resp = client.post("/auth/login", json={"username": "systemuser", "password": "system1234"})
+    resp = client.post("/auth/login", json={"username": "system", "password": "system1234"})
     return resp.json()["access_token"]
 
 
