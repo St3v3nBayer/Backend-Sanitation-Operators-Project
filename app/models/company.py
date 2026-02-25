@@ -19,9 +19,6 @@ class Company(SQLModel, table=True):
     phone: Optional[str] = None
     email: Optional[str] = Field(default=None, unique=True)
     
-    # Server versioning
-    server_version: str = Field(default="1.0.0")
-    
     # Control
     is_active: bool = Field(default=True, index=True)
     

@@ -43,22 +43,23 @@ class CompanyRepository:
         self.session.refresh(company)
         return company
 
-    def update(self, company: Company) -> Company:
+    def update(self, company_id: int, update_data: dict) -> Optional[Company]:
         """Update an existing company"""
+        company = self.session.get(Company, company_id)
+        if not company:
+            return None
+        for key, value in update_data.items():
+            setattr(company, key, value)
         self.session.add(company)
         self.session.commit()
         self.session.refresh(company)
         return company
 
-    def delete(self, company: Company) -> None:
-        """Delete a company"""
-        self.session.delete(company)
-        self.session.commit()
-
     def delete(self, company_id: int) -> bool:
-        company = self._session.get(Company, company_id)
+        """Delete a company by ID"""
+        company = self.session.get(Company, company_id)
         if not company:
             return False
-        self._session.delete(company)
-        self._session.commit()
+        self.session.delete(company)
+        self.session.commit()
         return True

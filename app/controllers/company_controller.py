@@ -32,8 +32,7 @@ def create_company(data: CompanyCreate, session: Session) -> Company:
     company = Company(
         name=data.name,
         nit=data.nit,
-        is_active=True,
-        server_version="1.0.0"
+        is_active=True
     )
     return repo.create(company)
 
@@ -66,8 +65,6 @@ def update_company(company_id: int, data: CompanyUpdate, session: Session) -> Op
         update_data["nit"] = data.nit
     if data.is_active is not None:
         update_data["is_active"] = data.is_active
-    if data.server_version:
-        update_data["server_version"] = data.server_version
     
     return repo.update(company_id, update_data)
 

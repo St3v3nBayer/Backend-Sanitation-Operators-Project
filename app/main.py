@@ -34,8 +34,7 @@ async def lifespan(app: FastAPI):
                 default_company = Company(
                     name="Default Company",
                     nit="0000000000",
-                    email="admin@default.com",
-                    server_version="1.0.0"
+                    email="admin@default.com"
                 )
                 default_company = company_repo.create(default_company)
                 print("[Startup] Created default company")

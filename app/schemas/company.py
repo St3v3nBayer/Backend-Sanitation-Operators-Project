@@ -21,6 +21,7 @@ class CompanyUpdate(BaseModel):
     address: Optional[str] = None
     phone: Optional[str] = None
     email: Optional[EmailStr] = None
+    is_active: Optional[bool] = None
 
 
 class CompanyRead(BaseModel):
@@ -32,7 +33,6 @@ class CompanyRead(BaseModel):
     address: Optional[str] = None
     phone: Optional[str] = None
     email: Optional[EmailStr] = None
-    server_version: str
     is_active: bool
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
